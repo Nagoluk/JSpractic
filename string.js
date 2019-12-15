@@ -29,4 +29,3 @@ console.log(ucFirst("kkk"));
 console.log(checkSpam("XXX"));
 console.log(truncate("fsdafdfsdaf", 4));
 console.log(extractCurrencyValue("$9"));
-

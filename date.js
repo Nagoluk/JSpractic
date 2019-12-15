@@ -55,3 +55,45 @@ let getSecondsToday = () => {
 console.log(getSecondsToday());
 
 // 6. Создайте функцию getSecondsToTomorrow(), возвращающую количество секунд до завтрашней даты.
+
+let getSecondsToTomorrow = () => {
+  let now = new Date();
+  let tom = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+  console.log(tom)
+  return Math.round((tom - now)/1000);
+}
+
+console.log(getSecondsToTomorrow());
+
+//Напишите функцию formatDate(date), форматирующую date по следующему принципу:
+//Если спустя date прошло менее 1 секунды, вывести "прямо сейчас".
+//В противном случае, если с date прошло меньше 1 минуты, вывести "n сек. назад".
+//В противном случае, если меньше часа, вывести "m мин. назад".
+//В противном случае, полная дата в формате "DD.MM.YY HH:mm".
+// А именно: "день.месяц.год часы:минуты", всё в виде двух цифр, т.е. 31.12.16 10:00.
+
+
+let formatDate = (date) => {
+  let now = new Date ();
+  let mili = now.getTime() - date.getTime();
+
+  if(mili < 1000){
+    return `just now`;
+  }
+
+  else if (mili < 1000 * 60){
+    return `${Math.round(mili/1000)} second ago`;
+  }
+
+  else if(mili < 1000 * 60 * 60) {
+    return `${Math.round(mili/1000/60)} minutes ago`;
+  }
+
+  else {
+    let date = now.toString();
+    return "was " + date.slice(0, 24)
+  }
+}
+
+console.log(formatDate(new Date(2222)));
+
