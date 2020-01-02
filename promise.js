@@ -20,6 +20,7 @@ promise1.then(()=> console.log("after 2 sec"));
 
 let newRequest = () => {
     return new Promise((resolve, reject) => {
+        console.log("waiting...")
         const user = {
             name: "Hi",
             job: "Programmer"
@@ -31,5 +32,6 @@ let newRequest = () => {
 let req = newRequest();
 
 req.then(data =>{
+    console.log("ready!");
     console.log(JSON.parse(data));
 });
